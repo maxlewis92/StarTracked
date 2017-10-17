@@ -1,14 +1,21 @@
 import imdb
 
 i = imdb.IMDb()
-
+'''
 m = i.get_movie('0057012')
+print(m['title']+"\n\n")
+
 j = 0
 for j in range(len(m['cast'])):
     ps = m['cast'][j]
     test = ps.currentRole
-    print (unicode(ps.currentRole) + unicode(ps.keys()))
-'''
+    print(m['cast'][j])
+    #print (m['cast'][j].keys())
+    print("\t\t"+ unicode(ps.currentRole))
+    
+    
+    
+
 p = i.get_person('0001715')
 i.update(p)
 if p.has_key("actor"):
@@ -18,15 +25,14 @@ if p.has_key("actor"):
             i.update(role1)
             print(role.keys())
             print(p['name'] + " also played " + unicode(role) +" in" + item['long imdb canonical title'])
-  '''
 
+'''
 person = i.get_person('0001715')
-i.update(person)
 actcredits = person['actor']
-#i.update(actcredits)
 j = 0
 for j in range(len(person['actor'])):
     actcredits = person['actor'][j]
-    print(unicode(actcredits.currentRole)+unicode(actcredits.keys()) + actcredits['title'])
+    print("\tGeorge played as "+unicode(actcredits.currentRole)+"\n")
+    print(actcredits)
 
 print("Done")
